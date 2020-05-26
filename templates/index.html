@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Spine/Leaf IP Interfaces Report</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">  
+        <h1> Page Headline</h1>
+        <br />
+        <h2>Descriptive Subheadline</h2>
+        <h4>(lower case only)</h4>
+            <div class="form">
+                <form action="/" method="POST">
+                    <label for="device">Device Name</label>
+                    <input type="device" name="device" id="device">
+                    <input type="submit" value="Submit Device Name">
+                </form>
+            </div> 
+            <br />
+            <br />
+    <br />
+    <h2>Table of Query Results</h2>
+    <table>
+        <tr>
+            <th>Device</th>
+            <th>IP Address</th>
+            <th>ARP</th>            
+            <th>Timeadded</th>
+            <th>Latest Timestamp</th>
+        </tr>
+        {% for d in data %}
+            <tr>
+                <td>{{ d.device }}</td>
+                <td>{{ d.ip }}</td>
+                <td>{{ d.arp }}</td>
+                <td>{{ d.timeadded}}</td> 
+                <td>{{ d.timestamp}}</td>             
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br />
+    <h2> Subheadline Description of Action</h2>
+    <h2 style="color:red;"> Warning text in red if the action deletes data. </h2>
+    <a href="/action">Python Action Page</a>
+    <br />
+    <br />
+    <br />
+    </div>
+{% endblock %}
+
