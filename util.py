@@ -1,6 +1,6 @@
 
 class CiscoDeviceRO:
-    def __init__(self, host, username='nsdc_dev_ro', password='KN@tiv3!', device_type='cisco_ios', timeout=90, auth_timeout=90):
+    def __init__(self, host, username='your_tacacs_username', password='your_tacacs_password', device_type='cisco_ios', timeout=90, auth_timeout=90):
         self.host = host
         self.username = username
         self.password = password
@@ -47,91 +47,6 @@ def acc_pair(switch):
         else:
             access2 = switch[:-1] + str(accessnum +1)
     return access2
-
-
-"""
-Need function(s) to work out port channel analysis
-"""
-#function finds nxos port channel members from "show port-channel data int " + po# + " | b Ports"
-def pc_members_nxos(show_pc):
-    member_num = (len(pclines) - 2)
-    while member_num >= 1:
-        pcsplit = pclines[member_num].split()
-        pcport = pcsplit[0]
-        pc_members.append(pcport)
-        member_num = (member_num - 1)
-    while member_num == 0: 
-        pcsplit = pclines[member_num].split()
-        pcport = pcsplit[1]
-        pc_members.append(pcport)
-        member_num = (member_num - 1)
-    return pc_members
-
-#function finds ios etherchannel members from "show etherchannel " + port[2:] + " summ | i " + port"
-def pc_members_ios(show_pc):
-    pc_members = []
-    pcsplit = show_pc.split()
-    member_num = len(pcsplit)
-    while member_num >= 4:
-        pcport = pcsplit[member_num - 1][:-3]
-        pc_members.append(pcport)
-        member_num = (member_num - 1)
-    return pc_members
-
-
-def err_fields_ios(show_int_stats):
-    error_fields = []
-    error_fields.extend(show_int_stats.splitlines()[2].strip().split(','))
-    error_fields.extend(show_int_stats.splitlines()[3].strip().split(','))
-    return error_fields
-
-
-def err_true_ios(show_int_stats):
-    error_fields = []
-    errors_true = []
-    error_fields.extend(show_int_stats.splitlines()[2].strip().split(','))
-    error_fields.extend(show_int_stats.splitlines()[3].strip().split(','))
-    for error in error_fields:
-        if not error:
-            error = error
-        elif error.startswith('0'):
-            error = error
-        elif error.startswith(' 0'):
-            error = error
-        else:
-            errors_true.append(error)
-    if not errors_true:
-        errors_true = [['none']]
-    return errors_true
-
-    
-def err_fields_nxos(show_int_stats):
-    error_fields = []
-    error_fields.extend(show_int_stats.splitlines()[1].split('  '))
-    error_fields.extend(show_int_stats.splitlines()[2].split('  '))
-    error_fields.extend(show_int_stats.splitlines()[3].split('  '))
-    error_fields.extend(show_int_stats.splitlines()[4].split('  '))
-    return error_fields
-
-def err_true_nxos(show_int_stats):
-    error_fields = []
-    error_fields.extend(show_int_stats.splitlines()[1].split('  '))
-    error_fields.extend(show_int_stats.splitlines()[2].split('  '))
-    error_fields.extend(show_int_stats.splitlines()[3].split('  '))
-    error_fields.extend(show_int_stats.splitlines()[4].split('  '))
-    errors_true = []    
-    for error in error_fields:
-        if not error:
-            error = error
-        elif error.startswith('0'):
-            error = error
-        elif error.startswith(' 0'):
-            error = error
-        else: 
-            errors_true.append(error)
-    if not errors_true:
-        errors_true = [['none']]
-    return errors_true
 
 def nxos_check(hostname):
     try:
