@@ -1,1 +1,19 @@
+{% extends 'base.html' %}
 
+{% block head %}
+<title>Page Title</title>
+{% endblock %}
+
+{% block body %}  
+        <h1> Page Headline</h1>
+        <br />
+        <h2>Descriptive Subheadline</h2>
+        <h4>(lower case only)</h4>
+            <div class="form">
+                <form action="/" method="POST">
+                    <label for="device">Device Name</label>
+                    <input type="device" name="device" id="device">
+                    <input type="submit" value="Submit Device Name">
+                </form>
+            </div>
+{% endblock %}
