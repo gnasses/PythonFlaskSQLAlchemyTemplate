@@ -31,7 +31,7 @@ Note: defining absolute paths are typically required.
     sudo systemctl daemon-reload 
     
 #### Start the application as a service
-Be sure the application is not currently running!
+(Be sure the application is not already running!)
 
     sudo systemctl start <servicename>
     
