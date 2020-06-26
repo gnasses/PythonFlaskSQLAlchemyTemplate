@@ -44,6 +44,11 @@ or if Python3 is your default interpreter
 
         python app.py
 
+You should now be able to view the app in your browser, pointed to the ip address where you ran it, using the default port of 5000
+If you need to change the port the app runs on, edit the init line at the bottom of the app.py file. 
+
+
+
 -----
 
 ## Rehoming the application to a new Repo
