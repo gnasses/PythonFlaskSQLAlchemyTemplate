@@ -11,6 +11,7 @@ Be Sure to use the link to the main Repo (not master) and add .git to the end of
 
 Cloning a repo retains information about the origin, this must be removed to make your new project independent, and eventually live in its own repo. First go into your cloned directory
 
+        cd PythonFlaskSQLAlchemy
         git remote remove origin
 
 You can now change the name of the project folder to match your new project effort
