@@ -58,7 +58,7 @@ def index():
 
 #This route links to the first python action, things to populate your DB or manipulate it's fields
 @app.route('/action', methods=['POST', 'GET'])
-def action()
+def action():
     if request.method == 'POST':
         device = request.form['device']
         net_device = util.CiscoDeviceRO(host=device)
@@ -81,14 +81,14 @@ def action()
             for sub in ver_parsed:
                 version = sub['version']
                 image = sub['running_image']
-                hardware = sub['hardware']
+                hardware = sub['hardware'][0]
         new_entry = TABLE(device=device, os=os, version=version, image=image, hardware=hardware)
         db.session.add(new_entry)
         db.session.commit()
         data = TABLE.query.filter(TABLE.device == device).all()
         return render_template('action.html', data=data) 
     else:       
-        return render_template('action.html')        
+        return redirect('/')        
     
     
  
@@ -105,4 +105,4 @@ def api_function(device):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000)

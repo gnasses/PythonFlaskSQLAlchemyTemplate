@@ -1,6 +1,6 @@
 
 class CiscoDeviceRO:
-    def __init__(self, host, username='your_tacacs_username', password='your_tacacs_password', device_type='cisco_ios', timeout=90, auth_timeout=90):
+    def __init__(self, host, username='nsdc_dev_ro', password='KN@tiv3!', device_type='cisco_ios', timeout=90, auth_timeout=90):
         self.host = host
         self.username = username
         self.password = password
