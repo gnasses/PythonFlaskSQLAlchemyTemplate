@@ -58,7 +58,7 @@ def index():
 
 #This route links to the first python action, things to populate your DB or manipulate it's fields
 @app.route('/action', methods=['POST', 'GET'])
-def action()
+def action():
     if request.method == 'POST':
         device = request.form['device']
         net_device = util.CiscoDeviceRO(host=device)
