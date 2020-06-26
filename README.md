@@ -1,5 +1,5 @@
 # PythonFlaskSQLAlchemyTemplate
-This Repo containst the default framework and skeleton for NetDevOps WebApps and APIs using Python/Flask/SQLAlchemy/Marshmallow. The repo contains a fully working sample application (after updating credentials). This ReadMe should contain documentation as to how to clone this code, break the link to this repo, and create a new repo for the new application. Instructions are also provided for basic application deployment on a linux system. 
+This Repo containst the default framework and skeleton for NetDevOps WebApps and APIs using Python/Flask/SQLAlchemy/Marshmallow. The repo contains a fully working sample 'show version' database application (after updating credentials). The purpose of this skeleton is to provide a base application that can be modified as needed for a new project. This ReadMe contains documentation as to how to clone this code, break the link to this repo, and create a new repo for the new application. Instructions are also provided for basic application deployment on a linux system. 
 
 -----
 
