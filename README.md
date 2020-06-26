@@ -32,6 +32,7 @@ In your python environment install the required libraries from Pypy
         pip install flask
         pip install Flask-SQLAlchemy
         pip install flask-marshmallow
+        pip install ntc-templates
 
 #### Launch the application 
 From the application directory launch the application
