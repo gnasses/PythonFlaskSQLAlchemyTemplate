@@ -22,10 +22,10 @@ ma = Marshmallow(app)
 class TABLE(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     device = db.Column(db.String(100), nullable=False)
-    ip = db.Column(db.String(15))
-    mac = db.Column(db.String(14))
-    timeadded = db.Column(db.DateTime, default=datetime.utcnow)
-    timestamp = db.Column(db.DateTime)
+    os = db.Column(db.String(20))
+    version = db.Column(db.String(40))
+    image = db.Column(db.String(60))
+    hardware = db.Column(db.String(40))
     
     def __repr__(self):
         return '<%r>' % self.id
@@ -33,7 +33,7 @@ class TABLE(db.Model):
 # fields in the schema should match columns in the db
 class TABLESchema(ma.Schema):
     class Meta:
-        fields = ('id', 'device', 'ip', 'mac', 'timeadded', 'timestamp')
+        fields = ('id', 'device', 'os', 'version', 'image', 'hardware')
 # Init Schema        
 TABLE_schema = TABLESchema()
 TABLESs_schema = TABLESchema(many=True)
@@ -64,15 +64,25 @@ def action()
         net_device = util.CiscoDeviceRO(host=device)
         net_connect = Netmiko(**net_device.__dict__)
         # insert python code to extract appropriate data and set varaibles for DB entry
-        # example for ip interfaces brief data, adapt as needed and use ntc parsers or custom regex to extract vars
-        ip_int_bri = net_connect.send_command("show ip interface brief")
-        # ipaddr = 
-        # macaddr = 
-        # timestamp = 
-        # gracefully disconnect from device
+        # example for 'show version', adapt as needed and use ntc parsers or custom regex to extract vars
+        show_ver = net_connect.send_command("show version")
+        # Be a good steward of th3 network and disconnect sessions when done gathering info
         net_connect.disconnect()
-        
-        new_entry = TABLE(device=device, ip=ipaddr, mac=macaddr, timestamp=now)
+        if "NX-OS" in show_ver:
+            os = "nxos"
+            ver_parsed = parse_output(platform="cisco_nxos", command="show version", data=show_ver)
+            for sub in ver_parsed:
+                version = sub['os']
+                image = sub['boot_image']
+                hardware = sub['platform']                
+        else:
+            os = "ios"
+            ver_parsed = parse_output(platform="cisco_ios", command="show version", data=show_ver)
+            for sub in ver_parsed:
+                version = sub['version']
+                image = sub['running_image']
+                hardware = sub['hardware']
+        new_entry = TABLE(device=device, os=os, version=version, image=image, hardware=hardware)
         db.session.add(new_entry)
         db.session.commit()
         data = TABLE.query.filter(TABLE.device == device).all()
