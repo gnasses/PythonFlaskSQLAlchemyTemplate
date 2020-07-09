@@ -36,7 +36,7 @@ Verify the local repo is linked to your new remote
 
 Sync local files up to GitHub
 
-    git push -u origin master
+        git push -u origin master
 
 
 -----
