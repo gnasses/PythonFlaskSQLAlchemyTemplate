@@ -12,9 +12,9 @@ net_connect = Netmiko(**device.__dict__)
 out = net_connect.send_command(cmd)
 sw_ver = util.nxos_check(device)
 if sw_ver == "nxos":
-    out_parsed = parse_output(platform="cisco_ios", command=cmd, data=out)
-else:
     out_parsed = parse_output(platform="cisco_nxos", command=cmd, data=out)
+else:
+    out_parsed = parse_output(platform="cisco_ios", command=cmd, data=out)
 print(out_parsed)
 
 """
