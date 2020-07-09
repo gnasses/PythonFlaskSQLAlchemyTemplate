@@ -18,6 +18,29 @@ You can now change the name of the project folder to match your new project effo
 
 -----
 
+## Rehoming the application to a new Repo
+
+#### Create the New Repo on GitHub
+Go to github.
+Log in to your account.
+Click the new repository button in the top-right. **Be sure you do NOT check the button to create a new ReadMe file**
+
+#### Link your Previously Cloned Code to your new GitHub Repo
+Connect your local Repo to GitHub (Substitute the GitHub link below with the link to your new Repo)
+
+        git remote add origin https://github.optum.com/ORG/NewRepoName 
+
+Verify the local repo is linked to your new remote
+
+        git remote -v
+
+Sync local files up to GitHub
+
+    git push -u origin master
+
+
+-----
+
 ## Testing the existing application
 Before getting into modifying the existing code to suit your purposes you should make sure it can run in it's existing form.
 
@@ -49,27 +72,6 @@ If you need to change the port the app runs on, edit the init line at the bottom
 
         app.run(host='127.0.0.1', port=5000)
 
------
-
-## Rehoming the application to a new Repo
-
-#### Create the New Repo on GitHub
-Go to github.
-Log in to your account.
-Click the new repository button in the top-right. **Be sure you do NOT check the button to create a new ReadMe file**
-
-#### Link your Previously Cloned Code to your new GitHub Repo
-Connect your local Repo to GitHub (Substitute the GitHub link below with the link to your new Repo)
-
-        git remote add origin https://github.optum.com/ORG/NewRepoName 
-
-Verify the local repo is linked to your new remote
-
-        git remote -v
-
-Sync local files up to GitHub
-
-    git push -u origin master
 
 -----
 
