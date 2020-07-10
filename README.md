@@ -1,5 +1,5 @@
 # PythonFlaskSQLAlchemyTemplate
-This Repo containst the default framework and skeleton for NetDevOps WebApps and APIs using Python/Flask/SQLAlchemy/Marshmallow. The repo contains a fully working sample 'show version' database application (after updating credentials). The purpose of this skeleton is to provide a base application that can be modified as needed for a new project. This ReadMe contains documentation as to how to clone this code, break the link to this repo, and create a new repo for the new application. These directions are an overview, and were tested using Windows, Anaconda, and Git version from the UHG App Store. Additional instructions are also provided below for basic Flask development app deployment as services on a linux development server. 
+Contains the current development framework and app skeleton for NetDevOps WebApps and APIs using Python/Flask/SQLAlchemy/Marshmallow. The repo contains a fully working sample web application, a simple database of Cisco version information. The purpose of this skeleton is to provide a base application that can be modified as needed for a new project. This ReadMe contains documentation as to how to clone this code, break the link to this repo, and create a new repo for the new application. These directions were tested using Windows, Anaconda, and Git version from the UHG App Store. Exact command syntax may vary. Additional instructions are also provided below for basic Flask development app deployment as services on a linux development server. 
 
 -----
 
@@ -26,7 +26,7 @@ Log in to your account.
 Click the new repository button in the top-right. **Be sure you do NOT check the button to create a new ReadMe file**
 
 #### Link your Previously Cloned Code to your new GitHub Repo
-Connect your local Repo to GitHub (Substitute the GitHub link below with the link to your new Repo)
+Connect your local Repo to GitHub (Substitute the GitHub link below with the link to your new Repo) This assumes you have already entered the git config global commands to register your username and email. 
 
         git remote add origin https://github.optum.com/ORG/NewRepoName 
 
