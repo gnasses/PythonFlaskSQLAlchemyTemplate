@@ -1,5 +1,5 @@
 # PythonFlaskSQLAlchemyTemplate
-This Repo containst the default framework and skeleton for NetDevOps WebApps and APIs using Python/Flask/SQLAlchemy/Marshmallow. The repo contains a fully working sample 'show version' database application (after updating credentials). The purpose of this skeleton is to provide a base application that can be modified as needed for a new project. This ReadMe contains documentation as to how to clone this code, break the link to this repo, and create a new repo for the new application. Instructions are also provided for basic application deployment on a linux system. 
+This Repo containst the default framework and skeleton for NetDevOps WebApps and APIs using Python/Flask/SQLAlchemy/Marshmallow. The repo contains a fully working sample 'show version' database application (after updating credentials). The purpose of this skeleton is to provide a base application that can be modified as needed for a new project. This ReadMe contains documentation as to how to clone this code, break the link to this repo, and create a new repo for the new application. These directions are an overview, and were tested using Windows, Anaconda, and Git version from the UHG App Store. Additional instructions are also provided below for basic Flask development app deployment as services on a linux development server. 
 
 -----
 
@@ -101,7 +101,7 @@ If you need to change the port the app runs on, edit the init line at the bottom
 
 ------
 
-## Making a Flask Application into a service using Systemd
+## Deploy to Linux: Making a Flask Application into a service using Systemd
 This will allow the application to automatically start up after a system restart, and restart the application if it crashes or unloads for any reason. 
 
 #### Create a Service Unit File
