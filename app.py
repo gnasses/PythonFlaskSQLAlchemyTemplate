@@ -36,7 +36,7 @@ class TABLESchema(ma.Schema):
         fields = ('id', 'device', 'os', 'version', 'image', 'hardware')
 # Init Schema        
 TABLE_schema = TABLESchema()
-TABLESs_schema = TABLESchema(many=True)
+TABLES_schema = TABLESchema(many=True)
 
 """
 To build/rebuild the db, execute the following after stopping the app, closing the python console and deleting the old .db file:
@@ -100,7 +100,7 @@ def action():
 @app.route('/api/<device>', methods = ['POST'])
 def api_function(device):
     data = TABLE.query.filter(TABLE.device == device).all()
-    result = TABLESs_schema.dump(arps)
+    result = TABLES_schema.dump(data)
     return jsonify(result) 
 
 
