@@ -58,10 +58,19 @@ In your python environment install the required libraries from Pypy
         pip install flask-marshmallow
         pip install ntc-templates
 
+#### Initialize the Database 
+From the application directory launch a python window, import the DB function from the app, create table(s), then exit
+
+        python
+        >>> from app import db
+        >>> db.create_all()
+        >>> exit()
+        
+        
 #### Launch the application 
 From the application directory launch the application
 
-        python3 app.py
+        python app.py
         
 or if Python3 is your default interpreter
 
