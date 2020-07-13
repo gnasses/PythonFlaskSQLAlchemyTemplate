@@ -96,7 +96,7 @@ def action():
 
 
 # API Routes
-# API Data Post
+# API GET Query
 @app.route('/api/<device>', methods = ['GET'])
 def api_function(device):
     data = TABLE.query.filter(TABLE.device == device).all()
