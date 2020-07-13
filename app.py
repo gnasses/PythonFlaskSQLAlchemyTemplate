@@ -97,7 +97,7 @@ def action():
 
 # API Routes
 # API Data Post
-@app.route('/api/<device>', methods = ['POST'])
+@app.route('/api/<device>', methods = ['GET'])
 def api_function(device):
     data = TABLE.query.filter(TABLE.device == device).all()
     result = TABLES_schema.dump(data)
