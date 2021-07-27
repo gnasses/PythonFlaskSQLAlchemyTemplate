@@ -7,7 +7,7 @@ Contains a development framework and app skeleton for NetDevOps WebApps and APIs
 The first step to using the template is to make a local copy (clone) of the existing code
 Be Sure to use the link to the main Repo (not master) and add .git to the end of the link. This will create a new directory with the same name as the starting Repo (PythonFlaskSQLAlchemyTemplate)
 
-        git clone https://github.optum.com/NS/PythonFlaskSQLAlchemyTemplate.git
+        git clone https://github.com/gnasses/PythonFlaskSQLAlchemyTemplate.git
 
 Cloning a repo retains information about the origin, this must be removed to make your new project independent, and eventually live in its own repo. First go into your cloned directory
 
@@ -28,7 +28,7 @@ Click the new repository button in the top-right. **Be sure you do NOT check the
 #### Link your Previously Cloned Code to your new GitHub Repo
 Connect your local Repo to GitHub (Substitute the GitHub link below with the link to your new Repo) This assumes you have already entered the git config global commands to register your username and email. 
 
-        git remote add origin https://github.optum.com/ORG/NewRepoName 
+        git remote add origin https://github.com/user/NewRepoName 
 
 Verify the local repo is linked to your new remote
 
