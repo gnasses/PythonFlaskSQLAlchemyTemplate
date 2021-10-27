@@ -65,7 +65,9 @@ From the application directory launch a python window, import the DB function fr
         >>> from app import db
         >>> db.create_all()
         >>> exit()
-        
+ 
+ To learn more about the database queries used and how to work with Flask-sqlalchemy try Anthony Herbert's free video course:
+ https://courses.prettyprinted.com/p/flask-sqlalchemy-basics
         
 #### Launch the application 
 From the application directory launch the application
