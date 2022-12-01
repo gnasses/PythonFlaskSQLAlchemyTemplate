@@ -1,12 +1,9 @@
 from flask import Flask, render_template, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-from datetime import datetime
 from netmiko import Netmiko
 import util
-import json
 from ntc_templates.parse import parse_output
-from pythonping import ping
 # Init app
 app = Flask(__name__)
 # Database
