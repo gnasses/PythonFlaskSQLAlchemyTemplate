@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from netmiko import Netmiko
-import util
 from ntc_templates.parse import parse_output
+import util
 # Init app
 app = Flask(__name__)
 # Database
